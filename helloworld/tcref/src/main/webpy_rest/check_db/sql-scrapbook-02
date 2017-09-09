@@ -1,0 +1,22 @@
+select count(*) cnt, 'len<16' as len from demklog where client='182.150.59.216' and length(mkcode) <16 
+ union 
+select count(*) cnt, '16<len<32' as len from demklog where client='182.150.59.216' and length(mkcode) >16 and length(mkcode) <32
+ union 
+select count(*) cnt, 'len=16' as len from demklog where client='182.150.59.216' and length(mkcode) =16 
+ union 
+select count(*) cnt , 'len=32' as len from demklog where client='182.150.59.216' and length(mkcode) =32 
+ union 
+select count(*) cnt, 'len=all' as len from demklog where client='182.150.59.216' 
+
+select * from demklog where mkcode like '%5D166BA3C4A11409B44F132B1D5D7B%'
+
+select distinct client from demklog
+
+select count(*) cnt, client from demklog group by client
+
+select * from demklog where _id in(602,603,604,605,1408,1409,1410,1411,2222,2223,2224,2225)
+
+
+select count(*) cnt, zcm , mkcode, client,timestamp from demklog group by zcm   order by cnt  limit 10000
+
+select * from demklog where zcm='12370333'

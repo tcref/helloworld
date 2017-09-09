@@ -1,0 +1,20 @@
+ cnt   len       
+ ----- --------- 
+     0 len<16   
+     1 16<len<32
+   167 len=32   
+ 62056 len=16   
+ 62224 len=all  
+
+
+------------------------------------------------------------------------------------------
+select count(*) cnt, 'len<16' as len from demklog where client='182.150.59.216' and length(mkcode) <16 
+ union 
+select count(*) cnt, '16<len<32' as len from demklog where client='182.150.59.216' and length(mkcode) >16 and length(mkcode) <32
+ union 
+select count(*) cnt, 'len=16' as len from demklog where client='182.150.59.216' and length(mkcode) =16 
+ union 
+select count(*) cnt , 'len=32' as len from demklog where client='182.150.59.216' and length(mkcode) =32 
+ union 
+select count(*) cnt, 'len=all' as len from demklog where client='182.150.59.216'
+-----------------------------------------------------------------------------------------

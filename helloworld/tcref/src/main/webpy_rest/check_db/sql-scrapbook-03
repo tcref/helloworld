@@ -1,0 +1,6 @@
+
+select * from demklog where client='182.150.59.216' and length(mkcode) >16 and length(mkcode) <32;
+
+select count(*) from demklog where client='182.150.59.216' and length(mkcode) =16 ;
+select count(*) from demklog where client='182.150.59.216' and length(mkcode) =32 ;
+select count(*) from demklog where client='182.150.59.216' ;
